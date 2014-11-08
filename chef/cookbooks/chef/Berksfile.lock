@@ -1,0 +1,48 @@
+DEPENDENCIES
+  chef
+    path: .
+    metadata: true
+  imagemagick
+  mysql (= 4.0.10)
+  nginx (= 2.4.2)
+  openssl
+  rbenv
+    git: git@github.com:fnichol/chef-rbenv.git
+    revision: 0a3018634bafe58ad21c6ee271af015220e444b9
+  ruby_build
+  timezone
+
+GRAPH
+  apt (2.6.0)
+  bluepill (2.3.1)
+    rsyslog (>= 0.0.0)
+  build-essential (1.4.4)
+  chef (0.1.0)
+  imagemagick (0.2.3)
+  java (1.28.0)
+  mysql (4.0.10)
+    build-essential (~> 1.4)
+    openssl (~> 1.1)
+  nginx (2.4.2)
+    apt (~> 2.2)
+    bluepill (~> 2.3)
+    build-essential (~> 1.4)
+    ohai (~> 1.1)
+    runit (~> 1.2)
+    yum (~> 3.0)
+    yum-epel (>= 0.0.0)
+  ohai (1.1.12)
+  openssl (1.1.0)
+  rbenv (0.7.3)
+    java (> 1.4.0)
+    ruby_build (>= 0.0.0)
+  rsyslog (1.12.2)
+  ruby_build (0.8.0)
+  runit (1.5.10)
+    build-essential (>= 0.0.0)
+    yum (~> 3.0)
+    yum-epel (>= 0.0.0)
+  timezone (0.0.1)
+  yum (3.4.1)
+  yum-epel (0.5.2)
+    yum (~> 3.0)

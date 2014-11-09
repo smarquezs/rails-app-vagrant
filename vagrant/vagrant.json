@@ -1,0 +1,67 @@
+{
+  "app": {
+    "server_name": "_",
+    "listen": "8080",
+    "name": "my-app",
+    "dir": "/my-app",
+    "env": "development",
+    "nginx": {
+      "vhosts_dir": "",
+      "user": ""
+    }
+  },
+  "user": {
+    "name": "vagrant"
+  },
+  "nginx": {
+    "version": "1.5.7",
+    "dir": "/etc/nginx",
+    "log_dir": "/var/log/nginx",
+    "binary": "/opt/nginx-1.4.1/sbin",
+    "user": "www-data",
+    "init_style": "init",
+    "install_method": "source",
+    "source": {
+      "modules": [
+        "nginx::http_geoip_module",
+        "nginx::http_ssl_module",
+        "nginx::http_gzip_static_module",
+        "nginx::http_stub_status_module",
+        "nginx::upload_progress_module",
+        "nginx::http_realip_module",
+        "nginx::passenger"
+      ]
+    },
+    "passenger": {
+      "version": "4.0.37",
+      "gem_binary": "/home/vagrant/.rbenv/versions/2.0.0-p247/bin/gem",
+      "ruby": "/home/vagrant/.rbenv/versions/2.0.0-p247/bin/ruby",
+      "root": "/home/vagrant/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/passenger-4.0.37/"
+    }
+  },
+  "rbenv": {
+    "user_installs": [
+      {
+        "user": "vagrant",
+        "rubies": ["2.0.0-p247"],
+        "global": "2.0.0-p247",
+        "gems": {
+          "2.0.0": [
+            {"name": "rails", "version": "4.1.0"},
+            {"name": "bundler"},
+            {"name": "passenger", "version": "4.0.29"}
+          ]
+        }
+      }
+    ]
+  },
+  "mysql": {
+    "server_root_password": "root",
+    "server_repl_password": "root",
+    "server_debian_password": "root"
+  },
+  "run_list": [
+    "recipe[my-app::vagrant]",
+    "recipe[my-app::app]"
+  ]
+}

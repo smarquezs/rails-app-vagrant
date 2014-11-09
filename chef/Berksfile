@@ -1,11 +1,9 @@
 source "https://supermarket.getchef.com"
 
-metadata
-
-cookbook 'mysql', '4.0.10'
+cookbook "sqlite"
+cookbook 'mysql'
 cookbook 'openssl'
 cookbook 'nginx', '2.4.2'
 cookbook 'ruby_build'
 cookbook 'rbenv', git: 'git@github.com:fnichol/chef-rbenv.git'
-cookbook 'timezone'
 cookbook 'imagemagick'

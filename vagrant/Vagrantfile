@@ -1,0 +1,36 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+VAGRANT_JSON = JSON.parse(File.read("./vagrant.json"))
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  # Every Vagrant virtual environment requires a box to build off of.
+  config.vm.box       = 'precise32'
+  config.vm.box_url   = 'http://files.vagrantup.com/precise32.box'
+
+  config.vm.hostname = 'my-app'
+
+
+  config.vm.synced_folder "../", "/my-app"
+
+  config.vm.network :private_network, ip: "33.33.33.53"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
+    vb.customize ["modifyvm", :id, "--name", "my-app"]
+  end
+
+  config.vm.provision :shell, :inline => 'apt-get update'
+  config.vm.provision :shell, :inline => 'apt-get install -y build-essential ruby1.9.1-dev --no-upgrade'
+  config.vm.provision :shell, :inline => "gem install chef --version 11.10.4 --no-rdoc --no-ri --conservative"
+
+  config.vm.provision "chef_solo" do |chef|
+    chef.cookbooks_path = ["../chef/cookbooks","../chef/site-cookbooks"]
+
+    chef.json = VAGRANT_JSON
+    chef.run_list = VAGRANT_JSON.delete "run_list"
+  end
+end

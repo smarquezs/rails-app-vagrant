@@ -1,4 +1,4 @@
-## TALLER RAILS
+## Repositorio rails 4.1, Ruby 2.0 con vagrant
 
 ## Prerrequisitos
 * Vagrant

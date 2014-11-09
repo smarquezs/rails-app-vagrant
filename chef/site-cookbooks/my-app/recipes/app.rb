@@ -6,6 +6,7 @@ include_recipe 'mysql::client'
 include_recipe "nginx::source"
 include_recipe "nginx::passenger"
 include_recipe "nginx::http_realip_module"
+include_recipe "nginx::upload_progress_module"
 include_recipe "nginx::http_gzip_static_module"
 include_recipe "nginx::http_stub_status_module"
 

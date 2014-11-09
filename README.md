@@ -1,4 +1,4 @@
-## Repositorio rails 4.1, Ruby 2.0 con vagrant
+## Repositorio rails 4.1, Ruby 2.0, nginx y passanger usando vagrant
 
 ## Prerrequisitos
 * Vagrant

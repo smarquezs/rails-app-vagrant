@@ -21,7 +21,7 @@ Ir a la consola si es windows ideal C:
 
 ```console
   vagrant ssh (para ingresar a la maquina con linux)
-  cd /taller
+  cd /rails-app-vagrant
   rbenv rehash
   bundle install --no-deployment; bundle install --deployment (esperar otro ratito)
 ```
